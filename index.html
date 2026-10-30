@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#173d32">
+  <meta name="color-scheme" content="light">
+  <title>Kakobuy Spreadsheet Guide: Finds, QC &amp; Categories</title>
+  <meta name="description" content="Explore a practical Kakobuy spreadsheet guide. Browse clothing categories, compare product details, review QC photos, and plan your shopping checklist.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Kakobuy Spreadsheet — The Considered Shopping Edit">
+  <meta property="og:description" content="A category-first guide to product research, sizing, QC photos, and shopping costs. Explore the edit on CAFANS.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Kakobuy Spreadsheet — The Considered Shopping Edit">
+  <meta name="twitter:description" content="Browse categories and build a more useful product shortlist with a practical spreadsheet shopping guide.">
+
+  <!-- Add a self-referencing canonical URL after the final public domain is known. -->
+  <!-- Brand artwork below is embedded editorial illustration, not product photography. -->
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23173d32'/%3E%3Cpath d='M44 19H25a13 13 0 000 26h19M27 26h17M27 37h13' fill='none' stroke='%23f4f1e8' stroke-width='5'/%3E%3C/svg%3E">
+
+  <style>
+    :root{
+      --paper:#f6f3ec;
+      --white:#fffdf8;
+      --ink:#172c25;
+      --green:#173d32;
+      --muted:#5c665e;
+      --line:#d8d9cd;
+      --lime:#dae78e;
+      --orange:#b74729;
+      --serif:Georgia,"Times New Roman",serif;
+      --sans:Arial,Helvetica,sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible,summary:focus-visible{outline:3px solid var(--orange);outline-offset:5px}
+    a,summary{-webkit-tap-highlight-color:transparent}
+    svg{display:block;width:100%;height:auto}
+    .wrap{width:min(1240px,calc(100% - 48px));margin:auto}
+    .announcement{background:var(--green);color:var(--paper);text-align:center;padding:9px 16px;font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+    header{border-bottom:1px solid var(--line)}
+    .header-inner{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{font-size:24px;font-weight:800;letter-spacing:-1px}
+    .logo small{display:block;font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
+    nav{display:flex;align-items:center;gap:26px;font-size:13px}
+    .nav-cta{border:1px solid var(--ink);padding:9px 17px;border-radius:30px}
+    .eyebrow{font-size:11px;letter-spacing:.17em;text-transform:uppercase;font-weight:700}
+    .hero{display:grid;grid-template-columns:1.22fr 1fr;gap:60px;padding:65px 0 48px;align-items:center}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-family:var(--serif);font-size:clamp(45px,5.9vw,78px);font-weight:400;line-height:1.02;letter-spacing:-.045em;margin:18px 0 24px}
+    h1 em{font-weight:400;color:var(--orange)}
+    .hero-copy{max-width:560px;font-size:16px;color:var(--muted)}
+    .actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px;align-items:center}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:24px;padding:13px 22px;background:var(--green);color:white;border-radius:3px;font-weight:700;font-size:13px}
+    .button:hover{background:#245642}
+    .text-link{font-size:13px;border-bottom:1px solid;padding:7px 0}
+    .hero-note{font-size:11px;color:var(--muted);margin-top:20px}
+    .index-card{background:var(--lime);padding:31px;border:1px solid #c5cf8a;transform:rotate(2deg);box-shadow:12px 13px 0 #e8e5dc}
+    .index-top{display:flex;justify-content:space-between;border-bottom:1px solid #8b985d;padding-bottom:18px}
+    .index-card h2{font-family:var(--serif);font-weight:400;font-size:35px;line-height:1.15;margin:23px 0}
+    .index-row{display:grid;grid-template-columns:32px 1fr auto;gap:10px;border-top:1px solid #b0bd76;padding:12px 0;font-size:13px}
+    .index-row span:first-child{color:#52613c}
+    .index-card small{display:block;font-size:11px;margin-top:14px}
+    .categories{border-top:1px solid var(--line);padding:27px 0 40px}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:25px}
+    .section-head h2{font-family:var(--serif);font-size:clamp(29px,3.5vw,43px);font-weight:400;line-height:1.15;letter-spacing:-.025em;margin:9px 0 0}
+    .section-head p{font-size:13px;color:var(--muted);max-width:340px;margin-bottom:2px}
+    .category-grid{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+    .category{min-height:92px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px;background:var(--white);display:flex;flex-direction:column;justify-content:space-between;gap:13px}
+    .category:hover{background:var(--lime)}
+    .category small{color:var(--muted);font-size:10px;letter-spacing:.1em}
+    .category strong{display:flex;justify-content:space-between;gap:8px;font-size:13px;font-weight:600}
+    .intro{display:grid;grid-template-columns:210px 1fr;gap:40px;padding:30px 0 45px;border-bottom:1px solid var(--line)}
+    .intro h2{font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+    .intro p{font-family:var(--serif);font-size:clamp(21px,2.4vw,29px);line-height:1.5;margin:0;max-width:900px}
+    .edit{padding:47px 0}
+    .editorial-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .art{aspect-ratio:4/4.5;overflow:hidden;background:#e7e6de}
+    .art svg{height:100%}
+    figure{margin:0}
+    figcaption{padding:16px 0}
+    .caption-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+    .caption-top h3{font-size:14px;margin:0}
+    .caption-top span{font-size:10px;color:var(--muted)}
+    figcaption p{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:9px}
+    .mini-link{font-size:12px;font-weight:700;border-bottom:1px solid var(--line)}
+    .art-note{color:var(--muted);font-size:11px;border-top:1px solid var(--line);padding-top:15px}
+    .guide{background:var(--green);color:var(--paper);padding:48px 0}
+    .guide .section-head p{color:#c9d2cb}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+    .step{border-top:1px solid #597165;padding-top:20px}
+    .step-number{font-family:var(--serif);font-size:39px;color:var(--lime)}
+    .step h3{font-size:16px;margin:9px 0}
+    .step p{color:#d0d9d1;font-size:13px;margin-bottom:0}
+    .research{padding:50px 0}
+    .table-box{overflow:auto;border:1px solid var(--line);background:var(--white)}
+    table{width:100%;border-collapse:collapse;min-width:620px;font-size:13px}
+    th,td{text-align:left;padding:17px 20px;border-bottom:1px solid var(--line);vertical-align:top}
+    th{background:#e8ebdf;font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+    td:first-child{font-weight:700;width:21%}
+    tr:last-child td{border-bottom:0}
+    .cost-note{padding:21px 24px;margin-top:19px;border-left:3px solid var(--orange);background:#ede9df;font-size:13px}
+    .cost-note strong{display:block;margin-bottom:5px}
+    .topics{border-top:1px solid var(--line);padding:43px 0}
+    .topic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+    .topic-group h3{font-size:14px}
+    .topic-group ul{padding-left:17px;margin:0;color:var(--muted);font-size:12px;line-height:2}
+    .faq{padding:40px 0 50px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1.5fr;gap:60px}
+    .faq h2{font-family:var(--serif);font-size:43px;font-weight:400;line-height:1.15;margin:14px 0}
+    .faq-intro{font-size:13px;color:var(--muted);max-width:330px}
+    details{border-bottom:1px solid var(--line)}
+    summary{padding:18px 0;cursor:pointer;font-weight:600;font-size:14px}
+    details p{font-size:13px;color:var(--muted);padding:0 20px 18px 0;margin:0}
+    .closing{background:var(--lime);padding:30px;display:flex;align-items:center;justify-content:space-between;gap:25px;margin-bottom:45px}
+    .closing h2{font-family:var(--serif);font-size:30px;font-weight:400;line-height:1.15;margin-bottom:8px}
+    .closing p{font-size:13px;margin-bottom:0}
+    footer{border-top:1px solid var(--line);padding:30px 0}
+    .footer-inner{display:grid;grid-template-columns:1fr 2fr;gap:60px}
+    footer p{font-size:11px;color:var(--muted);margin:0}
+    @media(min-width:900px){
+      .guide,.research,.topics,.faq{content-visibility:auto;contain-intrinsic-size:auto 500px}
+    }
+    @media(max-width:950px){
+      .hero{gap:35px}
+      .category-grid{grid-template-columns:repeat(3,1fr)}
+      .editorial-grid,.steps,.topic-grid{grid-template-columns:repeat(2,1fr)}
+      .intro{grid-template-columns:160px 1fr;gap:25px}
+      .faq{gap:30px}
+    }
+    @media(max-width:640px){
+      .wrap{width:calc(100% - 32px)}
+      .announcement{font-size:9px;letter-spacing:.08em}
+      .header-inner{min-height:77px}
+      .logo{font-size:21px}
+      nav{gap:10px}
+      nav .nav-secondary{display:none}
+      .nav-cta{font-size:11px;padding:8px 12px}
+      .hero{grid-template-columns:1fr;padding:34px 0;gap:25px}
+      h1{font-size:52px}
+      .hero-copy{font-size:14px}
+      .index-card{transform:none;padding:23px;box-shadow:6px 6px 0 #e8e5dc}
+      .index-card h2{font-size:29px;margin:17px 0}
+      .category-grid{grid-template-columns:repeat(2,1fr)}
+      .category{padding:13px;min-height:87px}
+      .category strong{font-size:12px}
+      .section-head{display:block}
+      .section-head p{margin-top:13px}
+      .intro{grid-template-columns:1fr;gap:10px}
+      .editorial-grid{gap:13px}
+      .caption-top{display:block}
+      .caption-top span{display:block;margin-top:3px}
+      .steps{gap:25px 18px}
+      .step h3{font-size:14px}
+      .step p{font-size:12px}
+      .topic-grid{gap:25px 18px}
+      .topic-group ul{font-size:11px}
+      .faq{grid-template-columns:1fr;gap:12px}
+      .closing{padding:25px;display:block}
+      .closing .button{margin-top:20px}
+      .footer-inner{grid-template-columns:1fr;gap:18px}
+    }
+    @media(prefers-reduced-motion:no-preference){
+      .category,.button{transition:background-color .16s ease}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebPage",
+        "name":"Kakobuy Spreadsheet — The Considered Shopping Edit",
+        "description":"An independent category-first guide to researching products, reviewing QC photos, comparing sizing, and planning shopping costs.",
+        "inLanguage":"en",
+        "about":{
+          "@type":"Thing",
+          "name":"Kakobuy spreadsheet"
+        }
+      },
+      {
+        "@type":"FAQPage",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"What is a Kakobuy spreadsheet?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"A Kakobuy spreadsheet is a product-research list used to organize shopping links and comparison notes. Useful fields include the product URL, category, listed price, measurements, and QC observations. A list does not guarantee availability, quality, authenticity, or agent support."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Is this the official Kakobuy website?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"No. This is an independent shopping guide that links to CAFANS. It is not operated by or endorsed by Kakobuy or the brands named on this page."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"How do I use Kakobuy spreadsheet finds?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Choose a category, open a relevant listing, and record the product details in your own shortlist. Check the selected variant, measurements, current price, seller information, and any available QC photos before deciding whether to order."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Can QC photos prove that a branded item is authentic?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"No. QC photos can help you inspect visible details and apparent condition, but they do not establish authenticity. For branded goods, use authorized retailers or independently verifiable provenance."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Does a listed product price include shipping and taxes?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Do not assume it does. Check the item price, domestic delivery, service fees, international shipping, and any applicable taxes or duties separately. Obtain a current quote before committing."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Can I download a spreadsheet from this page?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"No downloadable spreadsheet is hosted here. This page provides category links and a practical comparison framework that you can copy into your own spreadsheet."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <div class="announcement">An independent shopping field guide · Categories first. Details matter.</div>
+
+  <header>
+    <div class="wrap header-inner">
+      <a class="logo" href="https://www.cafans.com" aria-label="Visit CAFANS">
+        CAFANS<span aria-hidden="true">↗</span>
+        <small>The considered edit</small>
+      </a>
+      <nav aria-label="Main navigation">
+        <a class="nav-secondary" href="https://www.cafans.com">Explore finds</a>
+        <a class="nav-secondary" href="https://cafans.com/category-920-Accessories.html">Accessories</a>
+        <a class="nav-cta" href="https://www.cafans.com">Visit CAFANS ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap hero" aria-labelledby="page-title">
+      <div>
+        <div class="eyebrow">The wardrobe research notebook</div>
+        <h1 id="page-title">Kakobuy<br>spreadsheet.<br><em>A considered edit.</em></h1>
+        <p class="hero-copy">
+          Start with the category. Stay for the details. Explore a practical guide
+          to Kakobuy spreadsheet finds, from sneaker research and clothing
+          measurements to QC photos and a clearer shopping shortlist.
+        </p>
+        <div class="actions">
+          <a class="button" href="https://www.cafans.com">Explore CAFANS <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="https://cafans.com/category-911-Shoes.html">Start with shoes ↗</a>
+        </div>
+        <p class="hero-note">Independent editorial guide. Category links open CAFANS.</p>
+      </div>
+
+      <aside class="index-card" aria-label="Shopping research checklist">
+        <div class="index-top">
+          <span class="eyebrow">The shortlist method</span>
+          <span aria-hidden="true">↗</span>
+        </div>
+        <h2>Less guesswork.<br>More useful details.</h2>
+        <div class="index-row"><span>01</span><strong>Find your category</strong><span>Browse</span></div>
+        <div class="index-row"><span>02</span><strong>Check the measurements</strong><span>Compare</span></div>
+        <div class="index-row"><span>03</span><strong>Review available photos</strong><span>Inspect</span></div>
+        <div class="index-row"><span>04</span><strong>Estimate the full cost</strong><span>Plan</span></div>
+        <small>A useful product list records evidence, not just attractive pictures.</small>
+      </aside>
+    </section>
+
+    <section class="wrap categories" aria-labelledby="categories-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">01 / Choose your starting point</span>
+          <h2 id="categories-title">Ten categories. One clear direction.</h2>
+        </div>
+        <p>Go straight to a CAFANS category and build a shortlist around what you actually need.</p>
+      </div>
+      <div class="category-grid">
+        <a class="category" href="https://cafans.com/category-911-Shoes.html"><small>01 / FOOTWEAR</small><strong>Shoes <span aria-hidden="true">↗</span></strong></a>
+        <a class="category" href="https://cafans.com/category-912-Hoodies%2FSweaters.html"><small>02 / LAYERS</small><strong>Hoodies/Sweaters <span aria-hidden="true">↗</span></strong></a>
+        <a class="category" href="https://cafans.com/category-913-T-Shirts.html"><small>03 / EVERYDAY</small><strong>T-Shirts <span aria-hidden="true">↗</span></strong></a>
+        <a class="category" href="https://cafans.com/category-914-Jackets.html"><small>04 / OUTERWEAR</small><strong>Jackets <span aria-hidden="true">↗</span></strong></a>
+        <a class="category" href="https://cafans.com/category-915-Pants%2FShorts.html"><small>05 / BOTTOMS</small><strong>Pants/Shorts <span aria-hidden="true">↗</span></strong></a>
+        <a class="category" href="https://cafans.com/category-916-Headwear.html"><small>06 / FINISHING TOUCH</small><strong>Headwear <span aria-hidden="true">↗</span></strong></a>
+        <a class="category" href="https://cafans.com/category-917-Sets.html"><small>07 / COORDINATED</small><strong>Sets <span aria-hidden="true">↗</span></strong></a>
+        <a class="category" href="https://cafans.com/category-918-underwear%2Funderpants.html"><small>08 / FOUNDATIONS</small><strong>Underwear/underpants <span aria-hidden="true">↗</span></strong></a>
+        <a class="category" href="https://cafans.com/category-919-Jersey.html"><small>09 / SPORTSWEAR</small><strong>Jersey <span aria-hidden="true">↗</span></strong></a>
+        <a class="category" href="https://cafans.com/category-920-Accessories.html"><small>10 / SMALL DETAILS</small><strong>Accessories <span aria-hidden="true">↗</span></strong></a>
+      </div>
+    </section>
+
+    <section class="wrap intro" aria-labelledby="definition-title">
+      <h2 id="definition-title">What is a Kakobuy spreadsheet?</h2>
+      <p>
+        A <strong>Kakobuy spreadsheet</strong> is a product-research list used to
+        organize shopping links and comparison notes. Useful fields include the
+        product URL, category, listed price, measurements, and QC observations.
+        A list does not guarantee availability, quality, authenticity, or agent support.
+      </p>
+    </section>
+
+    <section class="wrap edit" aria-labelledby="edit-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">02 / Visual research</span>
+          <h2 id="edit-title">A wardrobe, in four details.</h2>
+        </div>
+        <p>Illustrated brand references for footwear, clothing, headwear, and jewelry research.</p>
+      </div>
+
+      <div class="editorial-grid">
+        <figure>
+          <div class="art">
+            <svg viewBox="0 0 320 360" role="img" aria-labelledby="nike-title nike-desc" xmlns="http://www.w3.org/2000/svg">
+              <title id="nike-title">Nike sneaker editorial illustration</title>
+              <desc id="nike-desc">A stylized cream and green sneaker with Nike lettering, shown as a conceptual illustration rather than a product photograph.</desc>
+              <rect width="320" height="360" fill="#e1e6dd"/>
+              <circle cx="246" cy="75" r="89" fill="#d2d9ce"/>
+              <text x="24" y="35" font-family="Arial,sans-serif" font-size="10" letter-spacing="3" fill="#455c4b">FOOTWEAR STUDY</text>
+              <ellipse cx="164" cy="273" rx="125" ry="15" fill="#bbc6b9"/>
+              <g transform="rotate(-12 160 210)">
+                <path d="M39 220L65 202 89 145 126 169 147 191 219 211 267 229Q287 238 281 254L44 254Q29 241 39 220Z" fill="#faf8ed" stroke="#536a56" stroke-width="2"/>
+                <path d="M40 241Q133 250 282 241L281 260Q159 273 40 257Z" fill="#f4f0e3" stroke="#536a56" stroke-width="2"/>
+                <path d="M70 198L90 155 118 174 108 205Z" fill="#345744"/>
+                <path d="M119 204Q113 222 128 224Q159 220 229 204L145 239Q113 249 106 231Q102 218 119 204Z" fill="#345744"/>
+                <path d="M130 182L151 179M138 191L163 188M151 201L176 197M164 209L190 204" stroke="#68715f" stroke-width="4" stroke-linecap="round"/>
+                <path d="M45 252L276 254" stroke="#b4b7a8" stroke-width="2" stroke-dasharray="4 5"/>
+              </g>
+              <text x="25" y="326" font-family="Arial,sans-serif" font-size="32" font-weight="800" font-style="italic" fill="#264c38">NIKE</text>
+              <text x="230" y="327" font-family="Arial,sans-serif" font-size="10" fill="#455c4b">STUDY 01</text>
+            </svg>
+          </div>
+          <figcaption>
+            <div class="caption-top"><h3>Nike / Sneaker notes</h3><span>01 — FOOTWEAR</span></div>
+            <p>Compare the model reference, size chart, outsole details, and seller provenance.</p>
+            <a class="mini-link" href="https://cafans.com/category-911-Shoes.html">Explore shoes ↗</a>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <div class="art">
+            <svg viewBox="0 0 320 360" role="img" aria-labelledby="lv-title lv-desc" xmlns="http://www.w3.org/2000/svg">
+              <title id="lv-title">Louis Vuitton clothing editorial illustration</title>
+              <desc id="lv-desc">A conceptual tan jacket with LV lettering on a warm neutral background, not a representation of a verified product.</desc>
+              <rect width="320" height="360" fill="#e9dfd0"/>
+              <rect x="31" y="57" width="258" height="244" rx="130" fill="#dfcfb9"/>
+              <text x="24" y="35" font-family="Arial,sans-serif" font-size="10" letter-spacing="3" fill="#6b5138">LAYERING STUDY</text>
+              <ellipse cx="160" cy="286" rx="96" ry="11" fill="#c8b59b"/>
+              <path d="M120 95L91 111 45 211 82 228 109 174 105 281 216 281 212 174 238 228 275 211 230 111 199 95Z" fill="#a88a62" stroke="#665039" stroke-width="2"/>
+              <path d="M121 95L160 119 144 154 112 119ZM199 95L160 119 176 154 208 119Z" fill="#d3bb93" stroke="#665039" stroke-width="2"/>
+              <path d="M160 120V279M113 218H146V246H112M175 218H208V246H175" fill="none" stroke="#665039" stroke-width="2"/>
+              <path d="M106 270H214" stroke="#d3bb93" stroke-width="7"/>
+              <text x="177" y="183" font-family="Georgia,serif" font-size="22" fill="#f6ead3">LV</text>
+              <g fill="#59432f"><circle cx="160" cy="163" r="3"/><circle cx="160" cy="190" r="3"/><circle cx="160" cy="217" r="3"/><circle cx="160" cy="244" r="3"/></g>
+              <text x="24" y="326" font-family="Georgia,serif" font-size="23" fill="#5c4633">LOUIS VUITTON</text>
+            </svg>
+          </div>
+          <figcaption>
+            <div class="caption-top"><h3>Louis Vuitton / Layers</h3><span>02 — CLOTHING</span></div>
+            <p>Record fabric information, shoulder width, chest measurements, and garment length.</p>
+            <a class="mini-link" href="https://cafans.com/category-914-Jackets.html">Explore jackets ↗</a>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <div class="art">
+            <svg viewBox="0 0 320 360" role="img" aria-labelledby="gucci-title gucci-desc" xmlns="http://www.w3.org/2000/svg">
+              <title id="gucci-title">Gucci headwear editorial illustration</title>
+              <desc id="gucci-desc">A conceptual cream bucket hat with a green and red band and Gucci lettering, rendered as an editorial illustration.</desc>
+              <rect width="320" height="360" fill="#e7e7cf"/>
+              <circle cx="165" cy="179" r="112" fill="#d6d7b8"/>
+              <text x="24" y="35" font-family="Arial,sans-serif" font-size="10" letter-spacing="3" fill="#52583f">HEADWEAR STUDY</text>
+              <ellipse cx="160" cy="267" rx="116" ry="13" fill="#bfc2a1"/>
+              <path d="M100 120Q160 96 220 120L236 216 85 216Z" fill="#eee8ce" stroke="#717353" stroke-width="2"/>
+              <path d="M92 181Q162 197 228 181L234 210Q164 227 87 210Z" fill="#31543d"/>
+              <path d="M90 191Q163 208 230 191L232 201Q161 219 88 201Z" fill="#a34637"/>
+              <path d="M85 210Q161 232 235 210L278 249Q160 280 42 249Z" fill="#e5dec1" stroke="#717353" stroke-width="2"/>
+              <path d="M60 246Q160 267 261 246M102 124L95 175M217 124L225 175" fill="none" stroke="#b1ab8f" stroke-width="2"/>
+              <text x="160" y="165" text-anchor="middle" font-family="Georgia,serif" font-size="19" fill="#394d35">GUCCI</text>
+              <text x="24" y="326" font-family="Georgia,serif" font-size="29" letter-spacing="4" fill="#394d35">GUCCI</text>
+              <text x="230" y="327" font-family="Arial,sans-serif" font-size="10" fill="#52583f">STUDY 03</text>
+            </svg>
+          </div>
+          <figcaption>
+            <div class="caption-top"><h3>Gucci / Headwear</h3><span>03 — PROPORTION</span></div>
+            <p>Look for head circumference, brim dimensions, material details, and clear close-ups.</p>
+            <a class="mini-link" href="https://cafans.com/category-916-Headwear.html">Explore headwear ↗</a>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <div class="art">
+            <svg viewBox="0 0 320 360" role="img" aria-labelledby="hermes-title hermes-desc" xmlns="http://www.w3.org/2000/svg">
+              <title id="hermes-title">Hermès jewelry editorial illustration</title>
+              <desc id="hermes-desc">A conceptual gold and orange bracelet with an H-shaped detail, accompanied by Hermès lettering. This is not product photography.</desc>
+              <rect width="320" height="360" fill="#eddbcc"/>
+              <rect x="49" y="76" width="222" height="223" fill="#e6c6ae"/>
+              <text x="24" y="35" font-family="Arial,sans-serif" font-size="10" letter-spacing="3" fill="#77533c">JEWELRY STUDY</text>
+              <ellipse cx="164" cy="260" rx="91" ry="15" fill="#cda685"/>
+              <ellipse cx="160" cy="195" rx="89" ry="66" fill="none" stroke="#9a692e" stroke-width="25"/>
+              <ellipse cx="160" cy="190" rx="89" ry="66" fill="none" stroke="#d3a259" stroke-width="22"/>
+              <path d="M72 184Q72 251 160 256Q247 251 248 184" fill="none" stroke="#c56832" stroke-width="14"/>
+              <path d="M77 176Q89 130 145 126M178 127Q229 135 242 172" fill="none" stroke="#f2d79f" stroke-width="5" stroke-linecap="round"/>
+              <rect x="135" y="218" width="14" height="43" rx="2" fill="#f0d395" stroke="#9a692e"/>
+              <rect x="174" y="218" width="14" height="43" rx="2" fill="#f0d395" stroke="#9a692e"/>
+              <rect x="147" y="233" width="29" height="13" fill="#f0d395" stroke="#9a692e"/>
+              <text x="24" y="326" font-family="Georgia,serif" font-size="28" letter-spacing="3" fill="#704728">HERMÈS</text>
+              <text x="230" y="327" font-family="Arial,sans-serif" font-size="10" fill="#77533c">STUDY 04</text>
+            </svg>
+          </div>
+          <figcaption>
+            <div class="caption-top"><h3>Hermès / Small details</h3><span>04 — JEWELRY</span></div>
+            <p>Check dimensions, stated materials, clasp construction, and verifiable provenance.</p>
+            <a class="mini-link" href="https://cafans.com/category-920-Accessories.html">Explore accessories ↗</a>
+          </figcaption>
+        </figure>
+      </div>
+      <p class="art-note">
+        Visuals are original conceptual illustrations, not photographs or verified brand designs.
+        Brand references do not imply affiliation, authenticity, or availability on CAFANS.
+      </p>
+    </section>
+
+    <section class="guide" aria-labelledby="guide-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">03 / Kakobuy shopping guide</span>
+            <h2 id="guide-title">Turn a product link into a useful decision.</h2>
+          </div>
+          <p>A repeatable research process for sneakers, clothing, and accessories.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <span class="step-number">01</span>
+            <h3>Build a focused shortlist</h3>
+            <p>Choose one category and record the exact listing and selected variant. Keep color, size, and seller notes together so similar products do not get mixed up.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">02</span>
+            <h3>Compare fit, not labels</h3>
+            <p>For Kakobuy clothing finds, compare garment measurements with a piece you already own. For shoes, use the listing’s size chart and your foot measurements.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">03</span>
+            <h3>Read photos critically</h3>
+            <p>Use available Kakobuy QC photos to inspect visible details, selected colors, and apparent condition. Images cannot prove authenticity or reveal every material issue.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">04</span>
+            <h3>Check the total before buying</h3>
+            <p>Confirm current ordering support, delivery options, fees, and return terms with the relevant service. Treat a saved product price as a reference until rechecked.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap research" aria-labelledby="research-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">04 / Your comparison framework</span>
+          <h2 id="research-title">What belongs in a better spreadsheet?</h2>
+        </div>
+        <p>Use these fields when comparing Kakobuy sneaker finds or building a clothing shortlist.</p>
+      </div>
+      <div class="table-box" role="region" aria-label="Suggested product comparison fields" tabindex="0">
+        <table>
+          <caption style="text-align:left;padding:16px 20px;font-size:13px;color:#5c665e">Suggested columns for your own product-research spreadsheet</caption>
+          <thead>
+            <tr><th scope="col">Field</th><th scope="col">What to record</th><th scope="col">Why it helps</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Listing &amp; variant</td><td>Product URL, seller, color, size, and check date</td><td>Identifies the exact option you researched.</td></tr>
+            <tr><td>Price &amp; currency</td><td>Current item price and separately quoted fees</td><td>Keeps product cost distinct from the estimated delivered cost.</td></tr>
+            <tr><td>Measurements</td><td>Relevant garment dimensions or the shoe size chart</td><td>Supports a more useful fit comparison than a size label alone.</td></tr>
+            <tr><td>Materials</td><td>Seller-stated composition and supporting information</td><td>Separates documented details from assumptions based on images.</td></tr>
+            <tr><td>QC observations</td><td>Photo source, date, visible details, and unresolved questions</td><td>Preserves the limitations and context of visual checks.</td></tr>
+            <tr><td>Terms &amp; status</td><td>Availability, ordering support, return terms, and next action</td><td>Highlights what still needs confirmation before checkout.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <aside class="cost-note">
+        <strong>Budget for the complete order.</strong>
+        Estimated total = item price + domestic delivery + service fees + international shipping
+        + applicable taxes or duties. Include currency conversion costs where relevant and avoid
+        counting a fee twice if it is already included in a quote.
+      </aside>
+    </section>
+
+    <section class="wrap topics" aria-labelledby="topics-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">05 / Research prompts</span>
+          <h2 id="topics-title">Follow the questions that matter.</h2>
+        </div>
+        <p>Use these related search topics to investigate a product. They are research prompts, not claims of stock or verified quality.</p>
+      </div>
+      <div class="topic-grid">
+        <article class="topic-group">
+          <h3>Kakobuy spreadsheet finds</h3>
+          <ul>
+            <li>Kakobuy spreadsheet guide</li>
+            <li>Kakobuy product list</li>
+            <li>Kakobuy shopping checklist</li>
+            <li>Kakobuy product links</li>
+            <li>Kakobuy category guide</li>
+            <li>Kakobuy beginner guide</li>
+            <li>Kakobuy product comparison</li>
+            <li>Kakobuy shopping budget</li>
+          </ul>
+        </article>
+        <article class="topic-group">
+          <h3>Kakobuy sneaker finds</h3>
+          <ul>
+            <li>Kakobuy shoes spreadsheet</li>
+            <li>Sneaker size chart comparison</li>
+            <li>Foot length measurement guide</li>
+            <li>Sneaker outsole details</li>
+            <li>Shoe material comparison</li>
+            <li>Sneaker QC checklist</li>
+            <li>Shoe fit research</li>
+            <li>Branded footwear provenance</li>
+          </ul>
+        </article>
+        <article class="topic-group">
+          <h3>Kakobuy clothing finds</h3>
+          <ul>
+            <li>Kakobuy hoodies spreadsheet</li>
+            <li>Kakobuy T-shirt finds</li>
+            <li>Kakobuy jacket finds</li>
+            <li>Kakobuy pants and shorts</li>
+            <li>Clothing measurement guide</li>
+            <li>Fabric composition comparison</li>
+            <li>Jersey sizing guide</li>
+            <li>Matching sets size comparison</li>
+          </ul>
+        </article>
+        <article class="topic-group">
+          <h3>Kakobuy QC photos</h3>
+          <ul>
+            <li>Product photo inspection</li>
+            <li>Seller photo vs QC photo</li>
+            <li>Headwear size guide</li>
+            <li>Jewelry dimension checklist</li>
+            <li>Accessory material information</li>
+            <li>Shopping agent fee comparison</li>
+            <li>International shipping estimate</li>
+            <li>Product return policy checklist</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap faq" aria-labelledby="faq-title">
+      <div>
+        <span class="eyebrow">06 / Quick answers</span>
+        <h2 id="faq-title">Before you<br><em>open another tab.</em></h2>
+        <p class="faq-intro">Straightforward answers about spreadsheet research, product photos, and what this page provides.</p>
+        <a class="text-link" href="https://www.cafans.com">Continue to CAFANS ↗</a>
+      </div>
+      <div>
+        <details open>
+          <summary>What is a Kakobuy spreadsheet?</summary>
+          <p>A Kakobuy spreadsheet is a product-research list used to organize shopping links and comparison notes. Useful fields include the product URL, category, listed price, measurements, and QC observations. A list does not guarantee availability, quality, authenticity, or agent support.</p>
+        </details>
+        <details>
+          <summary>Is this the official Kakobuy website?</summary>
+          <p>No. This is an independent shopping guide that links to CAFANS. It is not operated by or endorsed by Kakobuy or the brands named on this page.</p>
+        </details>
+        <details>
+          <summary>How do I use Kakobuy spreadsheet finds?</summary>
+          <p>Choose a category, open a relevant listing, and record the product details in your own shortlist. Check the selected variant, measurements, current price, seller information, and any available QC photos before deciding whether to order.</p>
+        </details>
+        <details>
+          <summary>Can QC photos prove that a branded item is authentic?</summary>
+          <p>No. QC photos can help you inspect visible details and apparent condition, but they do not establish authenticity. For branded goods, use authorized retailers or independently verifiable provenance.</p>
+        </details>
+        <details>
+          <summary>Does a listed product price include shipping and taxes?</summary>
+          <p>Do not assume it does. Check the item price, domestic delivery, service fees, international shipping, and any applicable taxes or duties separately. Obtain a current quote before committing.</p>
+        </details>
+        <details>
+          <summary>Can I download a spreadsheet from this page?</summary>
+          <p>No downloadable spreadsheet is hosted here. This page provides category links and a practical comparison framework that you can copy into your own spreadsheet.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="wrap closing" aria-labelledby="closing-title">
+      <div>
+        <h2 id="closing-title">Your next find starts with a good question.</h2>
+        <p>Explore a category, compare the details, and keep your shortlist considered.</p>
+      </div>
+      <a class="button" href="https://www.cafans.com">Explore CAFANS <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <a class="logo" href="https://www.cafans.com">CAFANS ↗<small>The considered edit</small></a>
+      <p>
+        Independent Kakobuy spreadsheet research guide. All shopping links lead to CAFANS.
+        Kakobuy, Nike, Louis Vuitton, Gucci, and Hermès are trademarks of their respective
+        owners. No affiliation or endorsement is implied. Illustrations do not establish
+        product availability or authenticity. Confirm listing details and service terms
+        directly before making a purchase.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
